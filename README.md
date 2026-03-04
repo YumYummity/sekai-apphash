@@ -1,6 +1,6 @@
 Project SEKAI AppHash Repository
 ---
-AppHash values are automatically pulled at 02:00 UTC every day by [Action](https://github.com/mos9527/sekai-apphash/blob/master/.github/workflows/updater.yaml).
+AppHash values are automatically pulled at every :01 and :31 every day by [Action](https://github.com/YumYummity/sekai-apphash/blob/master/.github/workflows/updater.yaml).
 
 Currently, these regions are supported:
 - JP (Japan)
@@ -26,6 +26,9 @@ You can pull JSON values with the following links or use the markdown links to v
 |CN|[Link](https://raw.githubusercontent.com/mos9527/sekai-apphash/refs/heads/master/cn/apphash.json)|[Link](https://github.com/mos9527/sekai-apphash/blob/master/cn/apphash.md)|
 |TW|[Link](https://raw.githubusercontent.com/mos9527/sekai-apphash/refs/heads/master/tw/apphash.json)|[Link](https://github.com/mos9527/sekai-apphash/blob/master/tw/apphash.md)|
 |KR|[Link](https://raw.githubusercontent.com/mos9527/sekai-apphash/refs/heads/master/kr/apphash.json)|[Link](https://github.com/mos9527/sekai-apphash/blob/master/kr/apphash.md)|
+
+# ROW Regions (KR/TW/CN)
+Requests to these regions require a specific version built into the APK. We only grab the latest, so use `production_android` for app version, and the `apk_version`!
 
 # References
 https://github.com/mos9527/sssekai/
