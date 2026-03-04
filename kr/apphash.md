@@ -1,3 +1,5 @@
+APK Reported Version: 5.2.2.19378
+
 ## debug1_android
 com.pjsekai.kr (5.2.0, kr)
 ---

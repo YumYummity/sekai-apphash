@@ -1,3 +1,5 @@
+APK Reported Version: 5.2.1.3191
+
 ## debug1_android
 com.hermes.mk (5.2.0, cn)
 ---
