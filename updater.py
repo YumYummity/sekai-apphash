@@ -93,8 +93,8 @@ def fetch(region: str):
         return
 
     try:
-        if os.path.exists(CWD("pacakge_hash")):
-            with open(CWD("pacakge_hash"), "r") as f:
+        if os.path.exists(CWD("package_hash")):
+            with open(CWD("package_hash"), "r") as f:
                 old_hash = f.read().strip()
                 if old_hash == new_hash:
                     logger.info(f"hash unchanged on {region}: {old_hash}. skipping.")
@@ -129,7 +129,7 @@ def fetch(region: str):
         return
 
     try:
-        with open(CWD("pacakge_hash"), "w") as f:
+        with open(CWD("package_hash"), "w") as f:
             f.write(new_hash)
             logger.info(f"hash file updated on {region}: {new_hash}.")
     except Exception as e:
