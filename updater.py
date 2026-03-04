@@ -142,7 +142,7 @@ def apphash(region: str):
     if not os.path.exists(CWD(".temp", f"{region}.apk")):
         logger.error(f"apk not found on {region}.")
         return
-    from sssekai.entrypoint.apphash import main_apphash
+    from apphash import main_apphash
 
     class NamedDict(dict):
         def __getattribute__(self, name: str):
