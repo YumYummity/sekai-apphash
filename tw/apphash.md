@@ -1,4 +1,4 @@
-APK Reported Version: 6.0.0.20107
+APK Reported Version: 6.0.1.20969
 
 ## debug1_android
 com.hermes.mk.asia (6.0.2, tw)
