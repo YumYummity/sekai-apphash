@@ -45,7 +45,7 @@ class QooApp(requests.Session):
         return resp["data"]
 
 
-class PlainETag(requests.Session):
+class PlainSource(requests.Session):
     url: str
 
     def __init__(self, url: str):
@@ -57,9 +57,9 @@ class PlainETag(requests.Session):
             try:
                 resp = self.get(self.url, stream=True)
                 resp.raise_for_status()
-                etag = resp.headers.get("ETag", None)
-                assert etag, f"ETag not found for {self.url}"
-                return f"ETag {etag}", self.url
+                last_modified = resp.headers.get("last-modified", None)
+                assert last_modified, f"Last modified date not found for {self.url}"
+                return f"LastModified {last_modified}", self.url
             except Exception as e:
                 logger.warning(f"failed to fetch {self.url}: {e}")
                 if _ == retries - 1:
@@ -67,7 +67,7 @@ class PlainETag(requests.Session):
                 logger.warning(f"retrying {self.url}...")
 
 
-def soruce(region: str) -> requests.Session:  # hash, url
+def source(region: str) -> requests.Session:  # hash, url
     # fmt: off
     match region:
         case "jp": 
@@ -75,7 +75,7 @@ def soruce(region: str) -> requests.Session:  # hash, url
         case "en":
             return QooApp(18337)
         case "cn":
-            return PlainETag("https://ugapk.com/djogd")        
+            return PlainSource("https://ugapk.com/djogd")        
         case "tw":
             return QooApp(18298)
         case "kr":
@@ -93,7 +93,7 @@ def fetch(region: str):
     CWD = lambda *a: os.path.abspath(os.path.join(region, *a))
     os.makedirs(CWD(), exist_ok=True)
     try:
-        src = soruce(region)
+        src = source(region)
         new_hash, url = src.fetch()
     except Exception as e:
         logger.error(f"failed metadata fetch on {region}: {e}")
